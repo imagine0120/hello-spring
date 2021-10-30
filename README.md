@@ -39,3 +39,7 @@
     throw new IllegalStateException("이미 가입한 회원입니다.");
   });
   ```
+2. Refactor this shortcut
+  - ctrl+shift+alt+t(Windows)
+
+## 회원 서비스 테스트
