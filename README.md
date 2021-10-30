@@ -46,4 +46,12 @@
 1. 테스트 클래스명은 한글로 해도 무방
 2. given, when, then 사용하기
 3. 예외 테스트 케이스 작성도 중요하다
-4. 변수 추출하기 : Ctrl + Alt + V (windows)
+4. 변수 추출하기 : Ctrl + Alt + V (Windows)
+5. 두 개의 MemoryMemberRepository 인스턴스?
+  - clearStore 메서드 추가 위해 테스트 클래스에도 MemoryMemberRepository 인스턴스 선언
+  - 그런데 MemberService에서도 MemoryMemberRepository 인스턴스를 선언해주고 있음
+  - clearStore의 대상인 store가 클래스 레벨의 static 변수이기 때문에 지금은 문제가 없음
+  - 하지만 굳이 두 개의 인스턴스를 선언해 사용하는 것은 바람직하지 않음
+  -> DI(Dependency Injection) 으로 해결! 생성자 주입 방식으로 MemberService에 MemoryMemberRepository를 주입시켜줌
+
+
