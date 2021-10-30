@@ -25,11 +25,13 @@
   - 기본 문자인 경우, StringHttpMessageConverter
   - 객체의 경우 MappingJackson2HttpMessageConverter가 객체를 JSON으로 반환
 
-## 회원 리포지토리 테스트 케이스 작성
+
+## 회원 관리 예제 - 백엔드 개발
+### 회원 리포지토리 테스트 케이스 작성
 1. TDD
   - 테스트 클래스(케이스)를 먼저 작성하고, 이후 로직 생성 후 검증
 
-## 회원 서비스 개발
+### 회원 서비스 개발
 1. Optional<Type>::ifPresent()
   - Consumer<? super Type> arg 를 받아서 리턴값이 없는 표현식(expression)을 실행시킴
   - 표현식은 arg를 매개변수로 사용할 수도, 사용하지 않을 수도 있음
@@ -42,7 +44,7 @@
 2. Refactor this shortcut
   - Ctrl + Shift + Alt + t (Windows)
 
-## 회원 서비스 테스트
+### 회원 서비스 테스트
 1. 테스트 클래스명은 한글로 해도 무방
 2. given, when, then 사용하기
 3. 예외 테스트 케이스 작성도 중요하다
@@ -54,7 +56,9 @@
   - 하지만 굳이 두 개의 인스턴스를 선언해 사용하는 것은 바람직하지 않음
   -> DI(Dependency Injection) 으로 해결! 생성자 주입 방식으로 MemberService에 MemoryMemberRepository를 주입시켜줌
 
-## 컴포넌트 스캔과 자동 의존관계 설정
+
+## 스프링 빈과 의존관계
+### 컴포넌트 스캔과 자동 의존관계 설정
 1. Spring Container
   - MemberService 여러 컨트롤러가 공용으로 사용할 수 있는 서비스는 굳이 new 생성자로 여러 인스턴스를 만들 필요 없음
   - 스프링이 관리하는 컨테이너에 단 하나의 인스턴스만 만들어두고 가져다 쓰면 됨
@@ -86,7 +90,12 @@ public class MemberController {
 ```
 
 3.  스프링 빈 등록 방법
-  - 직접 등록
+  - 직접 스프링 빈 등록
   - 컴포넌트 스캔과 자동 의존관계 설정(DI) : ServletContext의 root 폴더 및 그 하위 폴더에서 어노테이션붙은 클래스를 탐색
 
-##
+### 자바 코드로 직접 스프링 빈 등록하기
+1. root 폴더에 SpringConfig 생성
+  - @Configuration 설정
+  - 서비스나 리포지토리 생성자 선언 및 @Bean 설정
+2. 장점
+  -  상황에 따라 구현 클래스를 변경해야 할 때 유용함 (MemoryMemberRepository)
