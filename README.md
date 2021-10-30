@@ -54,4 +54,33 @@
   - 하지만 굳이 두 개의 인스턴스를 선언해 사용하는 것은 바람직하지 않음
   -> DI(Dependency Injection) 으로 해결! 생성자 주입 방식으로 MemberService에 MemoryMemberRepository를 주입시켜줌
 
+## 컴포넌트 스캔과 자동 의존관계 설정
+1. Spring Container
+  - MemberService 여러 컨트롤러가 공용으로 사용할 수 있는 서비스는 굳이 new 생성자로 여러 인스턴스를 만들 필요 없음
+  - 스프링이 관리하는 컨테이너에 단 하나의 인스턴스만 만들어두고 가져다 쓰면 됨
+  - 스프링이 POJO(Plain Old Java Object)를 스프링 컨테이너에서 관리해야 하도록 알려주려면, @Controller, @Service, @Repository, @Entity 와 같이 어노테이션 사용
+  - 이와 같이 직접 사용할 인스턴스를 선언하는 것이 아니라, 스프링에 생성 및 관리를 맡기는 것이 바로 Dependency Injection
 
+```java
+MemberService memberService;
+
+@Autowired
+public MemberController(MemberService memberService){
+  this.memberService = memberService;
+}
+```
+
+2. Lombok & @RequiredArgsConstructor
+  - 필드 주입 방식 대신 생성자 주입 방식이 권장됨
+  - 생성자에 매개변수로 필요한 서비스나 리포지토리를 넣어주고, 생성자에 @Autowired 선언
+  - private final로 필드에 선언 후, @RequiredArgsConstructor를 이용하면 간결해짐
+
+```java
+@RequiredArgsConstructor
+@Controller
+public class MemberController {
+
+  private final MemberService memberService
+
+}
+```
