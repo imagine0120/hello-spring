@@ -12,9 +12,15 @@
   - templates : thymeleaf 파일들을 두는 폴더
 
 ### MVC와 템플릿 엔진
-1. 파라미터 값 받기
-  - @RequestParam : HTTP 요청 파라미터로 값을 전달받음. 해당 파라미터 없을 경우 에러나므로, required = false, 혹은 defaultValue 설정 필요
-  - @RequestBody
-  - ModelAttribute
+1. Model
+  - addAttribute 통해서 값을 템플릿에 전달
 
-2. 값 넘겨주기
+2. viewResolver
+  - String 값과 동명의 template 찾아서 리턴(템플릿 엔진 처리)
+
+### API
+1. @ResponseBody 문자 반환
+  - template이 아닌, 문자 내용을 직접 반환(JSON)
+  - viewResolver가 아닌, HttpMessageConverter가 동작
+  - 기본 문자인 경우, StringHttpMessageConverter
+  - 객체의 경우 MappingJackson2HttpMessageConverter가 객체를 JSON으로 반환
