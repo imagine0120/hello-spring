@@ -99,3 +99,11 @@ public class MemberController {
   - 서비스나 리포지토리 생성자 선언 및 @Bean 설정
 2. 장점
   -  상황에 따라 구현 클래스를 변경해야 할 때 유용함 (MemoryMemberRepository)
+
+## 회원 관리 예제 - 웹 MVC 개발
+### 회원 웹 기능 - 홈 화면 추가
+1. HomeController
+  - 경로를 "/"로 설정 시, 컨트롤러에 매핑된 경로가 우선시되어 resources/static/index.html 은 무시됨
+
+### 회원 웹 기능 - 등록
+1. 
