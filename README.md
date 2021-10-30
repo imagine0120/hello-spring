@@ -24,3 +24,18 @@
   - viewResolver가 아닌, HttpMessageConverter가 동작
   - 기본 문자인 경우, StringHttpMessageConverter
   - 객체의 경우 MappingJackson2HttpMessageConverter가 객체를 JSON으로 반환
+
+## 회원 리포지토리 테스트 케이스 작성
+1. TDD
+  - 테스트 클래스(케이스)를 먼저 작성하고, 이후 로직 생성 후 검증
+
+## 회원 서비스 개발
+1. Optional<Type>::ifPresent()
+  - Consumer<? super Type> arg 를 받아서 리턴값이 없는 표현식(expression)을 실행시킴
+  - 표현식은 arg를 매개변수로 사용할 수도, 사용하지 않을 수도 있음
+  ```java
+  Optional<Member> member = memberRepository.findById(id);
+  member.ifPresent(m->{
+    throw new IllegalStateException("이미 가입한 회원입니다.");
+  });
+  ```
