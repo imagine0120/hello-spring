@@ -84,3 +84,9 @@ public class MemberController {
 
 }
 ```
+
+3.  스프링 빈 등록 방법
+  - 직접 등록
+  - 컴포넌트 스캔과 자동 의존관계 설정(DI) : ServletContext의 root 폴더 및 그 하위 폴더에서 어노테이션붙은 클래스를 탐색
+
+##
