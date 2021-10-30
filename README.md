@@ -40,6 +40,10 @@
   });
   ```
 2. Refactor this shortcut
-  - ctrl+shift+alt+t(Windows)
+  - Ctrl + Shift + Alt + t (Windows)
 
 ## 회원 서비스 테스트
+1. 테스트 클래스명은 한글로 해도 무방
+2. given, when, then 사용하기
+3. 예외 테스트 케이스 작성도 중요하다
+4. 변수 추출하기 : Ctrl + Alt + V (windows)
