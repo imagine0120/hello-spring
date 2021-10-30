@@ -106,4 +106,15 @@ public class MemberController {
   - 경로를 "/"로 설정 시, 컨트롤러에 매핑된 경로가 우선시되어 resources/static/index.html 은 무시됨
 
 ### 회원 웹 기능 - 등록
-1. 
+1. POST 메서드로 등록요청 받기
+  - form 태그 내 action 속성에 매핑된 경로로 input 값이 지정된 name으로 전달됨
+  - 매개변수로 클래스 사용하면 input의 name과 동일한 프로퍼티에 setter로 값이 들어감
+
+
+## 스프링 DB 접근 기술
+### H2 데이터베이스 설치
+1. 스프링 DB 접근 기술
+  - JDBC : 애플리케이션 서버와 데이터베이스를 연결하는 기술
+  - JdbcTemplate : 스프링이 제공하는 편리한 DB 연결 기술
+  - JPA : 자동으로 쿼리를 생성해주는 기술
+  - 스프링 데이터 JPA : JPA를 한번 더 감싼 기술
