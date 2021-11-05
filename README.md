@@ -118,3 +118,16 @@ public class MemberController {
   - JdbcTemplate : 스프링이 제공하는 편리한 DB 연결 기술
   - JPA : 자동으로 쿼리를 생성해주는 기술
   - 스프링 데이터 JPA : JPA를 한번 더 감싼 기술
+
+2. sh vs. bat
+  - sh(쉘 스크립트) : 리눅스 배치파일 
+  - bat(배치 프로그램) : 윈도우 배치파일
+  - bin 폴더 아래 배치 프로그램 실행하여 h2 DB 실행
+
+3. 접근 방식
+  - 최초 접근 이후 jdbc:h2:tcp://localhost/~/test 로 접근
+  - 직접 배치 프로그램 파일 통해서 접근하는 게 아니라, 톰캣 통해서 접근하는 방법
+* Long(자바) = bigint(DB)
+
+
+### 순수 JDBC
