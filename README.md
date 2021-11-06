@@ -131,3 +131,9 @@ public class MemberController {
 
 
 ### 순수 JDBC
+1. build.gradle에 JDBC, h2 의존성 추가
+  - implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	- runtimeOnly 'com.h2database:h2'
+
+2. gradle 의존성 종류
+  - implementation : 
