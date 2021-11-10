@@ -134,6 +134,14 @@ public class MemberController {
 1. build.gradle에 JDBC, h2 의존성 추가
   - implementation 'org.springframework.boot:spring-boot-starter-jdbc'
 	- runtimeOnly 'com.h2database:h2'
+  - DB 설정 후 접근 시 설정파일(application.properties)에 username/password 추가 필요
 
 2. gradle 의존성 종류
   - implementation : 
+
+3. 자원 반환
+  - DB Connection 같은 외부 리소스는 사용 후 다 종료해줘야 한다. 
+
+4. 스프링의 장점
+  - [SOLID](https://ko.wikipedia.org/wiki/SOLID_(%EA%B0%9D%EC%B2%B4_%EC%A7%80%ED%96%A5_%EC%84%A4%EA%B3%84))
+ : 개방-폐쇄 원칙
