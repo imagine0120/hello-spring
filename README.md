@@ -149,3 +149,9 @@ public class MemberController {
 
 ### 스프링 통합 테스트
 1. @Transactional
+   - 테스트 클래스 혹은 메서드에 붙이면 테스트 이후 Transaction을 rollback 해주는 어노테이션
+
+2. jdbcSqlNonTransientConnectionException
+   - H2 DB의 Embeded 모드 vs. Server 모드 차이에 따라 발생
+   - Embeded : 하나의 JVM 프로세스 안에 애플리케이션 Main 스레드와 DB 접근 스레드를 구동시키는 방식. 애플리케이션 종료 시 데이터 손실되는, 휘발성 DB 모드이지만, 애플리케이션 스레드가 바로 데이터에 접근하기 때문에 속도가 빠름.
+   - Server : 두 개의 JVM 프로세스(애플리케이션 프로세스, DB 접근 프로세스)가 있고, 이 둘이 TCP/IP로 통신하는 모드. DB를 영속적으로 사용할 수 있고, 여러 애플리케이션에서 동시에 접근할 수 있음. 단, Embeded 모드보다 속도 느림.
