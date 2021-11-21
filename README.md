@@ -166,3 +166,9 @@ public class MemberController {
    - 순수 Jdbc와 동일한 환경설정
    - 커넥션 생성 및 종료를 위한 boiler-plate 작업을 줄여주나, SQL문은 직접 작성해야 함
 * 생성자 주입 방식 @Autowired 생략 : 생성자가 하나만 있을 때, Bean으로 등록되면 @Autowired 생략 가능
+
+2. stream.findAny() vs. findFirst()
+   - 둘다 스트림에서 찾은 첫 번째 요소를 반환하나, 멀티스레드 환경에서 차이가 있다.
+   - findAny() : 스트림의 순서를 고려하지 않고, 무조건 먼저 찾은 조건에 부합하는 요소 반환
+   - findFirst() : 스트림의 순서를 고려하여 무조건 조건에 부합하는 앞 순서의 요소 반환
+
