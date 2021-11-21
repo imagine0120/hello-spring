@@ -145,3 +145,7 @@ public class MemberController {
 4. 스프링의 장점
   - [SOLID](https://ko.wikipedia.org/wiki/SOLID_(%EA%B0%9D%EC%B2%B4_%EC%A7%80%ED%96%A5_%EC%84%A4%EA%B3%84))
  : 개방-폐쇄 원칙
+
+
+### 스프링 통합 테스트
+1. @Transactional
