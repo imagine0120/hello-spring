@@ -177,7 +177,7 @@ public class MemberController {
 1. JPA?
    - 자동으로 쿼리 생성
    - EntityManager : DB 접속 및 통신을 위한 객체. JPA 라이브러리 등록하면 스프링이 자동으로 EntityManager 생성하고 등록해줌. 가져다 쓰기만 하면 됨
-   - @Transactional : JPA 사용 시 서비스에 어노테이션 추가 필요
+   - @Transactional : Service에 어노테이션 추가. JPA를 통한 모든 데이터 변경은 트랜잭션 안에서 실행해야 한다.
    - Inline option : ctrl + alt + N
 	```java
 		//Before Refactoring
@@ -206,3 +206,7 @@ public class MemberController {
    - 엔티티를 영구 저장, 관리하는 환경
    - EntityManager 생성 시 함께 생성되며, EntityManager를 통해 접근 가능
    - 여러 EntityManager가 같은 영속성 컨텍스트에 접근 가능
+
+
+### 스프링 데이터 JPA
+1. 
