@@ -177,13 +177,32 @@ public class MemberController {
 1. JPA?
    - 자동으로 쿼리 생성
    - EntityManager : DB 접속 및 통신을 위한 객체. JPA 라이브러리 등록하면 스프링이 자동으로 EntityManager 생성하고 등록해줌. 가져다 쓰기만 하면 됨
+   - @Transactional : JPA 사용 시 서비스에 어노테이션 추가 필요
    - Inline option : ctrl + alt + N
 	```java
 		//Before Refactoring
-		List<Member> result = em.createQuery("select * from Member m", Member.class);
+		List<Member> result = em.createQuery("select * from Member m", Member.class).getResultList();
 		return result;
 
 		//After Refactoring
-		return em.createQuery("select * from Member m", Member.class);
+		return em.createQuery("select * from Member m", Member.class).getResultList();
 
 	```
+
+2. JPQL
+   - findAll이나, PK가 아닌 컬럼으로 조회할 경우 사용
+   - 테이블이 아닌, **객체**를 대상으로 쿼리를 날리는 것
+   ex) select * from Member m where m.name = :name
+
+3. EntityManagerFactory(SessionFactory in hibernate)
+   - EntityManager를 생성하며, thread-safe하여 여러 스레드가 동시에 Factory 사용 가능
+
+4. EntityManager(Session in hibernate)
+   - 엔티티를 저장하는 메모리상의 DB
+   - 엔티티 수정, 조회, 삭제 등 엔티티와 관련된 모든 일을 함
+   - 단, thread-safe 하지 않아서 @PersistenceContext 어노테이션을 통해 Spring이 주입해주는 Proxy를 사용해야 함
+
+5. PersistenceContext(영속성 컨텍스트)
+   - 엔티티를 영구 저장, 관리하는 환경
+   - EntityManager 생성 시 함께 생성되며, EntityManager를 통해 접근 가능
+   - 여러 EntityManager가 같은 영속성 컨텍스트에 접근 가능
