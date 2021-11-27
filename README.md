@@ -90,7 +90,7 @@ public class MemberController {
 ```
 
 3.  스프링 빈 등록 방법
-  - 직접 스프링 빈 등록
+  - 직접 스프링 빈 등록 : Config 클래스 생성 후 @Bean 붙인 생성자 작성
   - 컴포넌트 스캔과 자동 의존관계 설정(DI) : ServletContext의 root 폴더 및 그 하위 폴더에서 어노테이션붙은 클래스를 탐색
 
 ### 자바 코드로 직접 스프링 빈 등록하기
@@ -214,3 +214,13 @@ public class MemberController {
    - 단, @Repository를 단 다른 클래스가 있을 경우 컴파일 에러
    - SpringConfig에 생성자 주입 추가 : @Autowired 생성자, 혹은 private final @RequiredArgsConstructor
    - 그러면 자동으로 스프링이 해당 클래스 빈으로 등록해서 주입해줌
+
+
+## AOP
+### AOP가 필요한 상황
+1. 공통의 관심사 vs 핵심 비즈니스 로직
+
+### AOP 적용
+1. AOP 클래스 생성
+   - @Aspect 추가 및 빈 등록(설정파일에 직접 @Bean 등록 혹은 해당 클래스에 @Component 추가)
+   
