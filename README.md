@@ -209,4 +209,8 @@ public class MemberController {
 
 
 ### 스프링 데이터 JPA
-1. 
+1. 설정
+   - SpringDataJpaRepository : JpaRepository<Entity, id Type>과 기존 interface인 MemberRepository 상속, @Repository 없어도 됨
+   - 단, @Repository를 단 다른 클래스가 있을 경우 컴파일 에러
+   - SpringConfig에 생성자 주입 추가 : @Autowired 생성자, 혹은 private final @RequiredArgsConstructor
+   - 그러면 자동으로 스프링이 해당 클래스 빈으로 등록해서 주입해줌
