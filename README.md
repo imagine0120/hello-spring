@@ -172,3 +172,18 @@ public class MemberController {
    - findAny() : 스트림의 순서를 고려하지 않고, 무조건 먼저 찾은 조건에 부합하는 요소 반환
    - findFirst() : 스트림의 순서를 고려하여 무조건 조건에 부합하는 앞 순서의 요소 반환
 
+
+### JPA
+1. JPA?
+   - 자동으로 쿼리 생성
+   - EntityManager : DB 접속 및 통신을 위한 객체. JPA 라이브러리 등록하면 스프링이 자동으로 EntityManager 생성하고 등록해줌. 가져다 쓰기만 하면 됨
+   - Inline option : ctrl + alt + N
+	```java
+		//Before Refactoring
+		List<Member> result = em.createQuery("select * from Member m", Member.class);
+		return result;
+
+		//After Refactoring
+		return em.createQuery("select * from Member m", Member.class);
+
+	```
